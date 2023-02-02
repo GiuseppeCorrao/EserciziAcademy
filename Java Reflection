@@ -44,6 +44,6 @@
 
     }
     
-    //ho cercato di risolvere in questo modo, ma i test non passano
+    //ho cercato di risolvere in questo modo, ma i test non passano in java 8, in java 7 tutto funziona, bisogno di chiarimenti.
     
     
