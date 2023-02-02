@@ -1,0 +1,59 @@
+https://www.hackerrank.com/challenges/java-covariance/problem?isFullScreen=true
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class Flower {
+    public String whatsYourName(){
+        return "I have names and types.";
+    }
+}
+class Jasmine extends Flower{
+    public String whatsYourName(){
+        return "Jasmine";
+    }
+}
+class Lily extends Flower {
+    public String whatsYourName(){
+        return "Lily";
+    }
+}
+class Region extends Flower {
+    public Flower yourNationalFlower(){
+        Flower fl = new Flower();
+        return fl;
+    }
+}
+class WestBengal extends Region {
+    public Jasmine yourNationalFlower() {
+        Jasmine js = new Jasmine();
+        return js;
+    }
+}
+class AndhraPradesh extends Region {
+    public Lily yourNationalFlower(){
+        Lily li = new Lily();
+        return li;
+    }
+}
+
+
+public class Solution {
+  public static void main(String[] args) throws IOException {
+      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+      String s = reader.readLine().trim();
+      Region region = null;
+      switch (s) {
+        case "WestBengal":
+          region = new WestBengal();
+          break;
+        case "AndhraPradesh":
+          region = new AndhraPradesh();
+          break;
+      }
+      Flower flower = region.yourNationalFlower();
+      System.out.println(flower.whatsYourName());
+    }
+}
+
