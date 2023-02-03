@@ -6,6 +6,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+ 
+
 
 public class Solution {
 
@@ -26,6 +28,11 @@ public class Solution {
         }
         
         convert.update(input.getBytes(),0,input.length());
-        System.out.println(new BigInteger(1,convert.digest()).toString(16));
+        
+        for (byte i : convert.digest()) {
+            System.out.print(String.format("%02x", i));
+        }
+
+
     }
 }
