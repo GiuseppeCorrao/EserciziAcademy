@@ -1,0 +1,31 @@
+https://www.hackerrank.com/challenges/sha-256/problem?isFullScreen=true
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        
+       
+        MessageDigest convert = null;
+        
+        try{
+            
+            convert = MessageDigest.getInstance("SHA-256");
+            
+            
+        }catch(NoSuchAlgorithmException e){
+            e.printStackTrace();
+        }
+        
+        convert.update(input.getBytes(),0,input.length());
+        System.out.println(new BigInteger(1,convert.digest()).toString(16));
+    }
+}
